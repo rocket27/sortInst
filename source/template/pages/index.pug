@@ -1,0 +1,27 @@
+extends ../template
+
+block variables
+  - var title = 'title'
+
+block content
+  .wrapper
+    .content
+      header.header
+        h1.header__title Sort Instagram by #tag
+      main.main
+        section.main__section
+          form.form
+            input.form__input(type="text" ng-model="tag1")
+            button.form__button(ng-click="getData(tag1, resultList1)") Go!
+          ul.resultList.resultList_tag1(ng-model="resultList1")
+        section.main__section
+          form.form
+            input.form__input(type="text" ng-model="tag2")
+            button.form__button(ng-click="getData(tag2, resultList2)") Go!
+          ul.resultList.resultList_tag2(ng-model="resultList2")
+        section.main__section.main__section_result
+          ul.resultList.resultList_tagBoth(ng-model="resultList3")
+    footer.footer
+      p.footer__copyright
+        | Created for WhiteSoft by 
+        a.footer__copyrightLink(href="https://github.com/rocket27" target="_blank") Dmitry Kamenev

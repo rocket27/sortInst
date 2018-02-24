@@ -1,0 +1,25 @@
+.resultList {
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    max-width: 162px;
+    margin: 0 10px 10px 0;
+  }
+  &__frame {
+    background-color: rgba(255, 255, 255, .75);
+    border: 1px solid rgba(192, 228, 236, .75);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+  }
+  &__image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 10px;
+  }
+  &__description {
+    font-size: .7rem;
+    text-align: center;
+  }
+}

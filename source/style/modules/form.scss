@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  @include centered(x);
+  top: 0;
+  &__input, &__button {
+    height: 28px;
+    background-color: rgba(0, 0, 0, .35);
+    color: rgb(255, 255, 255);
+    border: 1px solid white;
+    border-top: none;
+  }
+  &__input {
+    width: 160px;
+    border-right: none;
+    border-radius: 0 0 0 5px;
+    outline: none;
+    padding: 0 10px;
+  }
+  &__button {
+    width: 40px;
+    border-radius: 0 0 5px 0;
+    outline: none;
+    cursor: pointer;
+  }
+}
