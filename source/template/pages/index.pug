@@ -12,12 +12,12 @@ block content
         section.main__section
           form.form
             input.form__input(type="text" ng-model="tag1")
-            button.form__button(ng-click="getData(tag1, resultList1)") Go!
+            button.form__button(ng-click="getData(tag1, resultList1, true)") Go!
           ul.resultList.resultList_tag1(ng-model="resultList1")
         section.main__section
           form.form
             input.form__input(type="text" ng-model="tag2")
-            button.form__button(ng-click="getData(tag2, resultList2)") Go!
+            button.form__button(ng-click="getData(tag2, resultList2, true)") Go!
           ul.resultList.resultList_tag2(ng-model="resultList2")
         section.main__section.main__section_result
           ul.resultList.resultList_tagBoth(ng-model="resultList3")

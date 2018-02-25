@@ -1,4 +1,13 @@
 .footer {
   height: 30px;
   @extend %flexCentered;
+  &__copyright {
+    font-family: 'firaSansExtraLightItalic';
+  }
+  &__copyrightLink {
+    transition: color $transitionDuration;
+    &:hover {
+      color: $hoverColor
+    }
+  }
 }

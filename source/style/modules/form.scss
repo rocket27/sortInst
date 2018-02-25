@@ -2,6 +2,7 @@
   display: flex;
   @include centered(x);
   top: 0;
+  z-index: 15;
   &__input, &__button {
     height: 28px;
     background-color: rgba(0, 0, 0, .35);

@@ -4,13 +4,21 @@
 
 html {
 	min-height: 100%;
+	@include res768 {
+		font-size: 14px;
+	}
 }
 
 body {
 	min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+	font-family: 'firaSansBook', Arial, Helvetica, sans-serif;
+	color: $baseColor;
 	line-height: 1.42;
 	-webkit-font-smoothing: antialiased;
+	padding: 0 20px;
+	@include res768 {
+		padding: 0;
+	}
 }
 
 ul, p, button {

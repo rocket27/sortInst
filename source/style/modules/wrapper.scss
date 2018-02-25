@@ -1,11 +1,17 @@
 .wrapper {
-  max-width: 980px;
+  max-width: 1140px;
   min-height: 494px;
   display: flex;
   flex-flow: column nowrap;
   background: linear-gradient(135deg, rgba(252,254,255,1) 0%, rgba(237,247,255,1) 100%);
-  border-radius: 5px;
+  border-radius: 0 0 10px 10px;
   overflow: hidden;
   box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.35);
-  margin: auto;
+  margin: 0 auto 40px;
+  @include res768 {
+    height: 100%;
+    border-radius: 0px;
+    box-shadow: none;
+    margin: 0;
+  }
 }
