@@ -9,7 +9,7 @@ angular.module("myApp", [])
       $scope.resultList3 = $('.resultList_tagBoth');
 
     $scope.getData = function(tag, parent, execution) {
-      let amount = 4;
+      let amount = 20;
 
       $.ajax({
         url: 'https://api.instagram.com/v1/tags/' + tag + '/media/recent',
