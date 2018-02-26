@@ -10,16 +10,19 @@ block content
         h1.header__title Sort Instagram by #tag
       main.main
         section.main__section
+          h2.main__sectionTitle Enter hashtag here
           form.form
             input.form__input(type="text" ng-model="tag1")
-            button.form__button(ng-click="getData(tag1, resultList1, true)") Go!
+            button.form__button(ng-click="getData(tag1, resultList1, true)") Show
           ul.resultList.resultList_tag1(ng-model="resultList1")
         section.main__section
+          h2.main__sectionTitle and another one here
           form.form
             input.form__input(type="text" ng-model="tag2")
-            button.form__button(ng-click="getData(tag2, resultList2, true)") Go!
+            button.form__button(ng-click="getData(tag2, resultList2, true)") Show
           ul.resultList.resultList_tag2(ng-model="resultList2")
         section.main__section.main__section_result
+          h2.main__sectionTitle Overall result
           ul.resultList.resultList_tagBoth(ng-model="resultList3")
     footer.footer
       p.footer__copyright

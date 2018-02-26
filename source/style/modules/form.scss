@@ -1,14 +1,29 @@
 .form {
   display: flex;
+  justify-content: center;
   @include centered(x);
   top: 0;
   z-index: 15;
+  @include res654 {
+    font-size: .9rem;
+  }
+  @include res480 {
+    width: 100%;
+    position: inherit;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-bottom: 25px;
+  }
   &__input, &__button {
     height: 28px;
     background-color: rgba(0, 0, 0, .35);
     color: rgb(255, 255, 255);
     border: 1px solid white;
     border-top: none;
+    @include res654 {
+      height: 22px;
+    }
   }
   &__input {
     width: 160px;
@@ -16,11 +31,21 @@
     border-radius: 0 0 0 5px;
     outline: none;
     padding: 0 10px;
+    @include res1080 {
+      width: 120px;
+      padding: 0 4px;
+    }
+    @include res654 {
+      width: 90px;
+    }
   }
   &__button {
-    width: 40px;
+    width: 50px;
     border-radius: 0 0 5px 0;
     outline: none;
     cursor: pointer;
+    @include res654 {
+      width: 40px;
+    }
   }
 }

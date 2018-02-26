@@ -15,7 +15,7 @@ body {
 	color: $baseColor;
 	line-height: 1.42;
 	-webkit-font-smoothing: antialiased;
-	padding: 0 20px;
+	padding: 0 20px 40px;
 	@include res768 {
 		padding: 0;
 	}
