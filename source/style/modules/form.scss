@@ -1,8 +1,7 @@
 .form {
   display: flex;
   justify-content: center;
-  @include centered(x);
-  top: 0;
+  position: fixed;
   z-index: 15;
   @include res654 {
     font-size: .9rem;
@@ -10,10 +9,6 @@
   @include res480 {
     width: 100%;
     position: inherit;
-    top: auto;
-    left: auto;
-    transform: none;
-    margin-bottom: 25px;
   }
   &__input, &__button {
     height: 28px;

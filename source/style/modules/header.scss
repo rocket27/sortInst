@@ -1,19 +1,15 @@
 .header {
-  flex: 0 0 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(45deg, rgba(255,213,3,1) 0%, rgba(255,0,0,1) 33%, rgba(204,0,255,1) 71%, rgba(72,100,242,1) 100%);
   color: rgba(255, 255, 255, .85);
-  margin-bottom: 20px;
-  @include res768 {
-    flex-basis: 52px;
-  }
+  margin-bottom: 15px;
   &__title {
-    font-family: 'dancingScript';
-    font-size: 3rem;
+    height: 80px;
+    font: 3rem / 80px 'dancingScript';
+    text-align: center;
     @include res768 {
+      height: 52px;
       font-size: 2rem;
+      line-height: 52px;
     }
   }
 }

@@ -1,5 +1,5 @@
 .content {
-  flex: 1 0 auto;
+  min-height: calc(100% - #{$footerHeight});
   display: flex;
   flex-flow: column nowrap;
 }

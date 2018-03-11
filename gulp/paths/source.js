@@ -1,6 +1,6 @@
 'use strict';
 
 module.exports = [
-  './source/js/common.js',
-  './source/js/app.js'
+  './source/scripts/app.js',
+  './source/scripts/appCtrl.js'
 ];

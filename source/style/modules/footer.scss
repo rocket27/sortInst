@@ -1,8 +1,14 @@
 .footer {
-  min-height: 30px;
-  @extend %flexCentered;
+  border-top: 1px solid $borderColor;
   &__copyright {
+    display: flex;
+    justify-content: center;
     font-family: 'firaSansExtraLightItalic';
+    line-height: 29px;
+    text-align: center;
+    @include res480 {
+      font-size: .8rem;
+    }
   }
   &__copyrightLink {
     transition: color $transitionDuration;

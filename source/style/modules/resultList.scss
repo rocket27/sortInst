@@ -3,15 +3,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: auto;
   margin-left: -10px;
   @include res654 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     margin: 0;
-  }
-  @include res480 {
-    // flex-wrap: wrap;
   }
   &__item {
     max-width: 162px;

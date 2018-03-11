@@ -14,7 +14,6 @@ global.$ = {
   browserSync: require('browser-sync').create(),
   sassGlob: require('gulp-sass-glob'),
   cssUnit: require('gulp-css-unit'),
-  sftp: require('gulp-sftp'),
   gp: require('gulp-load-plugins')()
 };
 
@@ -26,14 +25,12 @@ $.gulp.task('default', $.gulp.series(
   'clean',
   $.gulp.parallel(
     'sass',
-    'pug',
     'js:foundation',
     'js:process',
     'copy:image',
     'copy:fonts',
-    'copy:json',
-    'css:foundation',
-    'sprite:svg'
+    'copy:html',
+    'css:foundation'
   ),
   $.gulp.parallel(
     'watch',
