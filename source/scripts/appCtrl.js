@@ -1,5 +1,5 @@
 angular.module("app").controller("appCtrl", ['$scope', '$http', '$interval',
-  function($scope, $http, $interval) {
+  function($scope, $http, $interval, $stateProvider) {
     const CLIENT_ID = '7147120302.fc512b0.c9adc6b52982443cb5576db82840ef94';
 
     $scope.dataStorage1 = [];

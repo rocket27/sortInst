@@ -1,92 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
-<head>
-  <meta charset="UTF-8">
-  <title>Sort Instagram by hashtag</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-  <link rel='stylesheet' href='css/foundation.css'>
-  <link rel='stylesheet' href='css/main.css'>
-  <script src='scripts/foundation.js' defer></script>
-  <script src='scripts/main.js' defer></script>
-</head>
-<body ng-controller="appCtrl">
-  <div class="wrapper">
-    <div class="content">
-      <header class="header">
-        <h1 class="header__title">Sort Instagram by #tag</h1>
-      </header>
-      <main class="main">
-        <section class="main__section">
-          <h2 class="main__sectionTitle">Enter hashtag here</h2>
-          <form class="form">
-            <input class="form__input" ng-model="tag1">
-            <button class="form__button" ng-click="getData()">Show</button>
-          </form>
-          <ul class="resultList">
-            <li class="resultList__item" ng-repeat="item in dataStorage1">
-              <figure class="resultList__frame">
-                <a class="resultList__link" href="{{item.images.standard_resolution.url}}">
-                  <div class="resultList__imgWrap">
-                    <img class="resultList__image" src="{{item.images.thumbnail.url}}">
-                  </div>
-                  <figcaption class="resultList__description">
-                      {{item.caption.text}}
-                  </figcaption>
-                </a>
-              </figure>
-            </li>
-          </ul>
-        </section>
-        <section class="main__section">
-          <h2 class="main__sectionTitle">and another one here</h2>
-          <form class="form">
-            <input class="form__input" ng-model="tag2">
-            <button class="form__button" ng-click="getData()">Show</button>
-          </form>
-          <ul class="resultList">
-            <li class="resultList__item" ng-repeat="item in dataStorage2">
-              <figure class="resultList__frame">
-                <a class="resultList__link" href="{{item.images.standard_resolution.url}}">
-                  <div class="resultList__imgWrap">
-                    <img class="resultList__image" src="{{item.images.thumbnail.url}}">
-                  </div>
-                  <figcaption class="resultList__description">
-                      {{item.caption.text}}
-                  </figcaption>
-                </a>
-              </figure>
-            </li>
-          </ul>
-        </section>
-        <section class="main__section">
-          <h2 class="main__sectionTitle">Overall result</h2>
-          <ul class="resultList">
-            <li class="resultList__item" ng-repeat="item in commonDataStorage">
-              <figure class="resultList__frame">
-                <a class="resultList__link" href="{{item.images.standard_resolution.url}}">
-                  <div class="resultList__imgWrap">
-                    <img class="resultList__image" src="{{item.images.thumbnail.url}}">
-                  </div>
-                  <figcaption class="resultList__description">
-                      {{item.caption.text}}
-                  </figcaption>
-                </a>
-              </figure>
-            </li>
-          </ul>
-        </section>
-      </main>
-    </div>
-    <footer class="footer">
-      <p class="footer__copyright">Created for WhiteSoft by&nbsp
-        <a class="footer__copyrightLink" href="http://dkamenev.pro/" target="_blank">Dmitry Kamenev</a>&nbsp
-        View on&nbsp
-        <a class="footer__copyrightLink" href="https://github.com/rocket27/sortInst" target="_blank">GitHub</a>
-      </p>
-    </footer>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sort Instagram by hashtag</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='css/foundation.css'>
+    <link rel='stylesheet' href='css/main.css'>
+    <script src='scripts/foundation.js' defer></script>
+    <script src='scripts/main.js' defer></script>
+  </head>
+  <body ng-controller="appCtrl" ui-view="view1"></body>
 </html>
