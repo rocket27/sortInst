@@ -1,7 +1,8 @@
 .wrapper {
   max-width: 1140px;
-  height: calc(100% - 40px);
-  min-height: 480px;
+  height: calc(100vh - 20px);
+  // height: 100vh;
+  // min-height: 480px;
   display: flex;
   flex-flow: column nowrap;
   background: linear-gradient(135deg, rgba(252,254,255,1) 0%, rgba(237,247,255,1) 100%);

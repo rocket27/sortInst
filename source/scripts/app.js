@@ -1,6 +1,6 @@
 'use strict';
 
-let app = angular.module('app', ['ui.router'])
+let app = angular.module('app', ['ui.router', 'requestToApi'])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('home', {
@@ -11,7 +11,6 @@ let app = angular.module('app', ['ui.router'])
             controller: 'appCtrl'
           }
         }
-        
       });
 
     $urlRouterProvider.otherwise('/');

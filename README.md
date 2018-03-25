@@ -6,17 +6,7 @@ The application scores the Instagram on the entered hashtags and displays the re
 Clone or download this repo.
 
 #### **Installation**
-To run the application, you need a package **gulp-cli** installed in the system globally.
-
-Using npm:
-```shell
-npm install gulp-cli -g
-```
-Using yarn:
-```shell
-yarn add gulp-cli global
-```
-After installing gulp-cli package, go to the local directory to further install the application dependencies,
+For installation the application dependencies, go to the local directory,
 ```shell
 cd path/to/your/folder
 ```
@@ -47,4 +37,4 @@ To test the application, you can use the following hashtags:
 * mountains
 * lake
 
-Hashtag must be in lowercase without "#" character.
+Tags can be in both lower and uppercase, contain the character "#" or not.

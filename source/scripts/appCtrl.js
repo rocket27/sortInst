@@ -1,56 +1,69 @@
-angular.module("app").controller("appCtrl", ['$scope', '$http', '$interval',
-  function($scope, $http, $interval, $stateProvider) {
-    const CLIENT_ID = '7147120302.fc512b0.c9adc6b52982443cb5576db82840ef94';
+'use strict';
+
+angular.module("app").controller("appCtrl", ['$scope', 'getResponseApi', '$q', '$interval',
+  function($scope, getResponseApi, $q, $interval, $stateProvider) {
 
     $scope.dataStorage1 = [];
     $scope.dataStorage2 = [];
     $scope.commonDataStorage = [];
-
+    
     $scope.tag1 = "nature";
     $scope.tag2 = "mountains";
 
-    $scope.getData = function() {
-      getResponseApi();
+    $scope.getDataLeft = function() {
+      return $q(function(resolve, reject) {
+        getResponseApi.request($scope.tag1).then(function(response) {
+          $scope.dataStorage1 = response.data.data;
+          resolve();
+        });
+      })
     };
 
-    $scope.appStart = function() {
-      getResponseApi();
-    };
-
-    $scope.appStart();
-    
-    $interval(function () {
-      getResponseApi();
-    }, 10000);
-
-
-    function getResponseApi() {
-      return $http({
-        method: 'GET',
-        url: 'https://api.instagram.com/v1/tags/' + $scope.tag1 + '/media/recent',
-        params: {access_token: CLIENT_ID}
-      }).then(function(response) {
-        return $scope.dataStorage1 = response.data.data;
-      }).then(function() {
-        return $http({
-          method: 'GET',
-          url: 'https://api.instagram.com/v1/tags/' + $scope.tag2 + '/media/recent',
-          params: {access_token: CLIENT_ID}
-        }).then(function(response) {
-          return $scope.dataStorage2 = response.data.data;
+    $scope.getDataRight = function() {
+      return $q(function(resolve, reject) {
+        getResponseApi.request($scope.tag2).then(function(response) {
+          $scope.dataStorage2 = response.data.data;
+          resolve();
         })
+      });
+    };
+
+    $scope.refreshDataLeft = function() {
+      $q(function(resolve, reject) {
+        $scope.getDataLeft().then(resolve);
       }).then(function() {
         getCommonData();
+      });
+    };
+
+    $scope.refreshDataRight = function() {
+      $q(function(resolve, reject) {
+        $scope.getDataRight().then(resolve);
+      }).then(function() {
+        getCommonData();
+      });
+    };
+
+    $scope.init = function() {
+      $q.all([$scope.getDataLeft(), $scope.getDataRight()]).then(function() {
+        getCommonData();
       })
-    }
+    };
+    
+    $scope.init();
+    
+    $interval(function () {
+      $scope.init();
+    }, 10000);
 
     function getCommonData() {
-      let commonArray = [], i, j;
+      let commonArray = [],
+        val1, val2;
 
-      for(i in $scope.dataStorage1) {
-        for (j in $scope.dataStorage2) {
-          if ($scope.dataStorage1[i].caption.id === $scope.dataStorage2[j].caption.id) {
-            commonArray.unshift($scope.dataStorage1[i]);
+      for(val1 of $scope.dataStorage1) {
+        for (val2 of $scope.dataStorage2) {
+          if (val1.caption.id === val2.caption.id) {
+            commonArray.unshift(val1);
             $scope.commonDataStorage = (commonArray.filter((item) => itemCheck(item)));
           }
         }
