@@ -1,0 +1,27 @@
+<md-dialog aria-label="List dialog">
+  <md-dialog-content>
+    <div class="popupContent">
+      <div class="userInfo">
+        <figure class="userInfo__picture">
+          <img class="userInfo__image" src="{{item.user.profile_picture}}">
+        </figure>
+        <span class="userInfo__name">{{item.user.username}}</span>
+      </div>
+      <p class="popupContent__description">{{item.caption.text}}</p>
+      <img class="popupContent__image" src="{{item.images.standard_resolution.url}}">
+      <div class="popupContent__info">
+        <p>
+          <span>Tags: </span>
+          <span ng-repeat="tag in item.tags">{{'#' + tag + ' '}}</span>
+        </p>
+        <p>
+          <span>Likes: </span>
+          <span>{{item.likes.count}}</span>
+        </p>
+      </div>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button ng-click="closeDialog()" class="md-primary">Close</md-button>
+  </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,14 @@
+.popupContent {
+  max-width: 656px;
+  color: $baseColor;
+  padding: 8px 8px 0;
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__image {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+}

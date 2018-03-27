@@ -12,15 +12,13 @@
         </form>
         <ul class="resultList">
           <li class="resultList__item" ng-repeat="item in dataStorage1">
-            <figure class="resultList__frame">
-              <a class="resultList__link" href="{{item.images.standard_resolution.url}}">
-                <div class="resultList__imgWrap">
-                  <img class="resultList__image" src="{{item.images.thumbnail.url}}">
-                </div>
-                <figcaption class="resultList__description">
-                    {{item.caption.text}}
-                </figcaption>
-              </a>
+            <figure class="resultList__frame" ng-click="showDialog($event, $index, dataStorage1)">
+              <div class="resultList__imgWrap">
+                <img class="resultList__image" src="{{item.images.thumbnail.url}}">
+              </div>
+              <figcaption class="resultList__description">
+                {{item.caption.text}}
+              </figcaption>
             </figure>
           </li>
         </ul>
@@ -33,15 +31,13 @@
         </form>
         <ul class="resultList">
           <li class="resultList__item" ng-repeat="item in dataStorage2">
-            <figure class="resultList__frame">
-              <a class="resultList__link" href="{{item.images.standard_resolution.url}}">
-                <div class="resultList__imgWrap">
-                  <img class="resultList__image" src="{{item.images.thumbnail.url}}">
-                </div>
-                <figcaption class="resultList__description">
-                    {{item.caption.text}}
-                </figcaption>
-              </a>
+            <figure class="resultList__frame" ng-click="showDialog($event, $index, dataStorage2)">
+              <div class="resultList__imgWrap">
+                <img class="resultList__image" src="{{item.images.thumbnail.url}}">
+              </div>
+              <figcaption class="resultList__description">
+                {{item.caption.text}}
+              </figcaption>
             </figure>
           </li>
         </ul>
@@ -50,15 +46,13 @@
         <h2 class="main__sectionTitle">Overall result</h2>
         <ul class="resultList">
           <li class="resultList__item" ng-repeat="item in commonDataStorage">
-            <figure class="resultList__frame">
-              <a class="resultList__link" href="{{item.images.standard_resolution.url}}">
-                <div class="resultList__imgWrap">
-                  <img class="resultList__image" src="{{item.images.thumbnail.url}}">
-                </div>
-                <figcaption class="resultList__description">
-                    {{item.caption.text}}
-                </figcaption>
-              </a>
+            <figure class="resultList__frame" ng-click="showDialog($event, $index, commonDataStorage)">
+              <div class="resultList__imgWrap">
+                <img class="resultList__image" src="{{item.images.thumbnail.url}}">
+              </div>
+              <figcaption class="resultList__description">
+                {{item.caption.text}}
+              </figcaption>
             </figure>
           </li>
         </ul>

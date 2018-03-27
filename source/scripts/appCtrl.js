@@ -1,14 +1,14 @@
 'use strict';
 
-angular.module("app").controller("appCtrl", ['$scope', 'getResponseApi', '$q', '$interval',
-  function($scope, getResponseApi, $q, $interval, $stateProvider) {
+angular.module("app").controller("appCtrl", ['$scope', 'popupDialog', 'getResponseApi', '$q', '$interval',
+  function($scope, popupDialog, getResponseApi, $q, $interval, $stateProvider) {
 
     $scope.dataStorage1 = [];
     $scope.dataStorage2 = [];
     $scope.commonDataStorage = [];
     
-    $scope.tag1 = "nature";
-    $scope.tag2 = "mountains";
+    $scope.tag1 = 'nature';
+    $scope.tag2 = 'mountains';
 
     $scope.getDataLeft = function() {
       return $q(function(resolve, reject) {
@@ -49,6 +49,8 @@ angular.module("app").controller("appCtrl", ['$scope', 'getResponseApi', '$q', '
         getCommonData();
       })
     };
+
+    $scope.showDialog = popupDialog.showDialog;
     
     $scope.init();
     

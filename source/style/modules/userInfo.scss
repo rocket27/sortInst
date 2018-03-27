@@ -1,0 +1,21 @@
+.userInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  &__picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 10px 0 0;
+  }
+  &__image {
+    display: block;
+    max-width: 100%;
+  }
+  &__name {
+    font-family: 'firaSansBold';
+    font-size: 24px;
+    color: $hoverColor;
+  }
+}

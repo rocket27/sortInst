@@ -8,6 +8,15 @@
 }
 
 @font-face {
+  font-family: 'firaSansBold';
+  src: url('../../assets/fonts/firasans-bold-webfont.woff2') format('woff2'),
+       url('../../assets/fonts/firasans-bold-webfont.woff') format('woff'),
+       url('../../assets/fonts/firasans-bold-webfont.svg#fira_sansbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'firaSansBook';
   src: url('../../assets/fonts/firasans-book-webfont.woff2') format('woff2'),
        url('../../assets/fonts/firasans-book-webfont.woff') format('woff'),

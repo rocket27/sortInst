@@ -34,8 +34,21 @@
     background-color: rgba(255, 255, 255, .75);
     border: 1px solid rgba(192, 228, 236, .75);
     border-radius: 5px;
+    outline: none;
     padding: 5px;
     margin: 0;
+    &:hover {
+      cursor: pointer;
+      .resultList__imgWrap::before {
+        opacity: .5;
+      }
+      .resultList__image {
+        transform: scale(1.1);
+      }
+      .resultList__description {
+        color: $hoverColor;
+      }
+    }
   }
   &__link:hover {
     .resultList__imgWrap::before {

@@ -5,11 +5,9 @@ angular.module('requestToApi', [])
   .factory('getResponseApi', function(clientID, $http) {
     return {
       request: function (tag) {
-        let convertedTag;
-
-        tag.charAt(0) === '#' ? convertedTag = tag.slice(1) 
-          : convertedTag = tag;
-
+        let convertedTag = tag.charAt(0) === '#' ? 
+          tag.slice(1) : tag;
+        
         return $http({
           method: 'GET',
           url: 'https://api.instagram.com/v1/tags/' + convertedTag + '/media/recent',

@@ -2,8 +2,6 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  // position: absolute;
-  // top: 20px;
   z-index: 15;
   @include res654 {
     font-size: .9rem;
