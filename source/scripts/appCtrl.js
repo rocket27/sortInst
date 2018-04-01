@@ -10,53 +10,41 @@ angular.module("app").controller("appCtrl", ['$scope', 'popupDialog', 'getRespon
     $scope.tag1 = 'nature';
     $scope.tag2 = 'mountains';
 
-    $scope.getDataLeft = function() {
-      return $q(function(resolve, reject) {
-        getResponseApi.request($scope.tag1).then(function(response) {
-          $scope.dataStorage1 = response.data.data;
-          resolve();
-        });
-      })
-    };
-
-    $scope.getDataRight = function() {
-      return $q(function(resolve, reject) {
-        getResponseApi.request($scope.tag2).then(function(response) {
+    $scope.getData = function(isRight = false) {
+      if (isRight) {
+        return getResponseApi.request($scope.tag2).then(function(response) {
           $scope.dataStorage2 = response.data.data;
-          resolve();
+        });
+      } else {
+        return getResponseApi.request($scope.tag1).then(function(response) {
+          $scope.dataStorage1 = response.data.data;
+        });
+      }
+    }
+
+    $scope.init = function(action) {
+      if (action === 'init') {
+        $q.all([$scope.getData(), $scope.getData(true)]).then(function() {
+          getCommonData();
         })
-      });
-    };
-
-    $scope.refreshDataLeft = function() {
-      $q(function(resolve, reject) {
-        $scope.getDataLeft().then(resolve);
-      }).then(function() {
-        getCommonData();
-      });
-    };
-
-    $scope.refreshDataRight = function() {
-      $q(function(resolve, reject) {
-        $scope.getDataRight().then(resolve);
-      }).then(function() {
-        getCommonData();
-      });
-    };
-
-    $scope.init = function() {
-      $q.all([$scope.getDataLeft(), $scope.getDataRight()]).then(function() {
-        getCommonData();
-      })
+      } else if (action === 'left') {
+        $scope.getData().then(function() {
+          getCommonData();
+        });
+      } else {
+        $scope.getData(true).then(function() {
+          getCommonData();
+        });
+      }
     };
 
     $scope.showDialog = popupDialog.showDialog;
     
-    $scope.init();
+    $scope.init('init');
     
-    $interval(function () {
-      $scope.init();
-    }, 10000);
+    // $interval(function () {
+    //   $scope.init('init');
+    // }, 10000);
 
     function getCommonData() {
       let commonArray = [],
@@ -66,21 +54,19 @@ angular.module("app").controller("appCtrl", ['$scope', 'popupDialog', 'getRespon
         for (val2 of $scope.dataStorage2) {
           if (val1.caption.id === val2.caption.id) {
             commonArray.unshift(val1);
-            $scope.commonDataStorage = (commonArray.filter((item) => itemCheck(item)));
+            $scope.commonDataStorage = (commonArray.filter(item => {
+              let temp = [];
+
+              if (temp.indexOf(item.caption.id) === -1) {
+                temp.push(item.caption.id);
+                return true;
+              }
+
+              return false;
+            }));
           }
         }
       }
-    }
-
-    function itemCheck(item) {
-      let temp = [];
-
-      if (temp.indexOf(item.caption.id) === -1) {
-        temp.unshift(item.caption.id);
-        return true
-      }
-
-      return false;
     }
 
   }]);

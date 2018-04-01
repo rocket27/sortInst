@@ -8,7 +8,7 @@
         <h2 class="main__sectionTitle">Enter hashtag here</h2>
         <form class="form">
           <input class="form__input" ng-model="tag1">
-          <button class="form__button" ng-click="refreshDataLeft()">Show</button>
+          <button class="form__button" ng-click="init('left')">Show</button>
         </form>
         <ul class="resultList">
           <li class="resultList__item" ng-repeat="item in dataStorage1">
@@ -27,7 +27,7 @@
         <h2 class="main__sectionTitle">and another one here</h2>
         <form class="form">
           <input class="form__input" ng-model="tag2">
-          <button class="form__button" ng-click="refreshDataRight()">Show</button>
+          <button class="form__button" ng-click="init('right')">Show</button>
         </form>
         <ul class="resultList">
           <li class="resultList__item" ng-repeat="item in dataStorage2">
